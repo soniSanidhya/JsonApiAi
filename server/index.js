@@ -2,12 +2,19 @@ import express from 'express';
 // const { GoogleGenerativeAI } = require("@google/generative-ai");
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import dotenv from 'dotenv';
+import cors from 'cors';
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 const dynamicRoutes = {};
 
+app.use(cors(
+  {
+    origin: '*',
+    
+  }
+));
 
 app.get('/', (_, res) => {
   res.send('Hello World!');
