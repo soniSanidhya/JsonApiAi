@@ -11,8 +11,8 @@ const dynamicRoutes = {};
 
 app.use(cors(
   {
-    origin: '*',
-    
+    origin: 'https://rad-choux-2b8087.netlify.app/',
+
   }
 ));
 
