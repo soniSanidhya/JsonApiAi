@@ -16,14 +16,14 @@ app.use(cors(
 ));
 
 app.get('/', (_, res) => {
-  res.send('Hello World!');
+  res.send('Hello World!' + process.env.GOOGLE_API_KEY);
 });
 
 console.log(process.env.GOOGLE_API_KEY);
 
 
 async function generateContent(query) {
-  const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
+  const genAI = new GoogleGenerativeAI({ apiKey: process.env.GOOGLE_API_KEY });
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
   
   const prompt = `generate a json file for following data: ${query}. Only provide the JSON data without any additional text.`;
