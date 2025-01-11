@@ -60,7 +60,7 @@ app.post('/add-endpoint', (req, res) => {
   dynamicRoutes[path] = { method, query };
   console.log(dynamicRoutes);
   listEndpoints(app);
-  res.status(201).json({ message: `Endpoint ${method.toUpperCase()} ${path} added successfully.` });
+  res.status(201).json({ message: `Endpoint ${method.toUpperCase()} ${path} added successfully. ${process.env.GOOGLE_API_KEY}` });
 });
 
 
