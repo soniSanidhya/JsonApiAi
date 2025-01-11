@@ -11,14 +11,16 @@ const dynamicRoutes = {};
 
 app.use(cors(
   {
-    origin: 'https://rad-choux-2b8087.netlify.app/',
-
+    origin: '*',
   }
 ));
 
 app.get('/', (_, res) => {
   res.send('Hello World!');
 });
+
+console.log(process.env.GOOGLE_API_KEY);
+
 
 async function generateContent(query) {
   const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
