@@ -23,7 +23,7 @@ app.get('/', (_, res) => {
 
 
 async function generateContent(query) {
-  const genAI = new GoogleGenerativeAI({ apiKey: process.env.GEMINI_API_KEY });
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
   
   const prompt = `generate a json file for following data: ${query}. Only provide the JSON data without any additional text.`;
@@ -60,7 +60,7 @@ app.post('/add-endpoint', (req, res) => {
   dynamicRoutes[path] = { method, query };
   console.log(dynamicRoutes);
   listEndpoints(app);
-  res.status(201).json({ message: `Endpoint ${method.toUpperCase()} ${path} added successfully. ${process.env.GEMINI_API_KEY}` });
+  res.status(201).json({ message: `Endpoint ${method.toUpperCase()} ${path} added successfully.` });
 });
 
 
